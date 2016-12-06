@@ -1,8 +1,10 @@
 package com.mellobit.gmckee.hubchatphotographyviewer.UI;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 
 import com.mellobit.gmckee.hubchatphotographyviewer.R;
 
@@ -14,8 +16,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button view = (Button) findViewById(R.id.button);
-        //view.setOnClickListener(e-> Toast.makeText(this,"Hello", Toast.LENGTH_LONG).show());
-
+        Fragment displayPostsFragment = new DisplayPostsFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.container, displayPostsFragment);
+        fragmentTransaction.commit();
     }
+
 }
