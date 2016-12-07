@@ -1,6 +1,7 @@
 package com.mellobit.gmckee.hubchatphotographyviewer.UI;
 
 import android.content.Context;
+import android.util.Log;
 
 /**
  * Created by GMckee on 03/12/2016.
@@ -24,6 +25,7 @@ public class DisplayPostsPresenter implements iPhotoPostListPresenter{
 
     @Override
     public void onRequestFinished(PhotoCommunityPostsAdapter adapter) {
+        Log.d("DISPLAY POSTS PRESENTER", "Calling onPostDataReady");
         postsListFragment.onPostDataReady(adapter);
     }
 }

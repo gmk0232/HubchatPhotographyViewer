@@ -5,6 +5,15 @@ package com.mellobit.gmckee.hubchatphotographyviewer.UI;
  */
 public class User {
 
-    String userName;
-    Avatar userAvatar;
+    String username;
+    Avatar avatar;
+
+    @Override
+    public String toString() {
+        String stringRep = "";
+        stringRep += username;
+        stringRep += avatar.toString();
+
+        return stringRep;
+    }
 }

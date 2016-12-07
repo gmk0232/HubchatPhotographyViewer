@@ -63,6 +63,8 @@ public class HubchatApiRest {
 
                     @Override
                     public void onNext(PhotographyCommunityResponse photographyCommunityResponse) {
+                        //Log.d("APICALL", photographyCommunityResponse.toString());
+
                         PhotoCommunityPost[] postsAsArray = getPostsAsArray(photographyCommunityResponse);
                         PhotoCommunityPostsAdapter adapter = new PhotoCommunityPostsAdapter(postsAsArray);
                         presenter.onRequestFinished(adapter);

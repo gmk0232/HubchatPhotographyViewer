@@ -19,4 +19,18 @@ public class PhotographyCommunityResponse{
     public List<PhotoCommunityPost> getPosts() {
         return posts;
     }
+
+    @Override
+    public String toString() {
+        String stringRep = "";
+
+        stringRep += status + "\n";
+
+        for (PhotoCommunityPost post: posts) {
+            stringRep += "*******POST*********" + "\n";
+            stringRep += post.toString();
+        }
+
+        return stringRep;
+    }
 }

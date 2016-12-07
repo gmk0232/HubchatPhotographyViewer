@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mellobit.gmckee.hubchatphotographyviewer.UI.DisplayPostsFragment"
@@ -47,13 +48,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="A collection of user posts about photography"
         android:id="@+id/description_label" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="fill_parent"
