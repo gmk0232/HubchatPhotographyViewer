@@ -17,6 +17,9 @@ public interface iHubchatApiInterface {
     @GET("photography/post")
     Observable<PhotographyCommunityResponse> getPostsFromApi();
 
+    @GET("photography")
+    Observable<ForumMetaDataResponse> getForumMetaDataFromApi();
+
     Retrofit retrofit = new Retrofit.Builder()
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())

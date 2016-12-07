@@ -6,9 +6,9 @@ import java.util.List;
  * Created by GMckee on 05/12/2016.
  */
 public class Entities {
-    List<Images> images;
+    List<Image> images;
 
-    public List<Images> getImages() {
+    public List<Image> getImages() {
         return images;
     }
 }

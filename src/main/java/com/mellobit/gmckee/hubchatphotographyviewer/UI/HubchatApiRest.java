@@ -25,7 +25,7 @@ public class HubchatApiRest {
         this.ctx = ctx;
         this.presenter = presenter;
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL.toString())
+                .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -45,7 +45,7 @@ public class HubchatApiRest {
             return postsAsArray;
     }
 
-    public PhotoCommunityPostsAdapter executeApiCall(){
+    public void executeGetPostsFromApi(){
         iHubchatApiInterface service = retrofit.create(iHubchatApiInterface.class);
         service.getPostsFromApi().
                 subscribeOn(Schedulers.newThread()).
@@ -53,7 +53,7 @@ public class HubchatApiRest {
                 subscribe(new Subscriber<PhotographyCommunityResponse>() {
                     @Override
                     public void onCompleted() {
-                        Log.d("APICALL", "Call completed!");
+                        Log.d("APICALL", "Fetch Posts call completed!");
                     }
 
                     @Override
@@ -63,16 +63,35 @@ public class HubchatApiRest {
 
                     @Override
                     public void onNext(PhotographyCommunityResponse photographyCommunityResponse) {
-                        //Log.d("APICALL", photographyCommunityResponse.toString());
-
                         PhotoCommunityPost[] postsAsArray = getPostsAsArray(photographyCommunityResponse);
-                        PhotoCommunityPostsAdapter adapter = new PhotoCommunityPostsAdapter(postsAsArray);
-                        presenter.onRequestFinished(adapter);
+                        PhotoCommunityPostsAdapter adapter = new PhotoCommunityPostsAdapter(postsAsArray, ctx);
+                        presenter.onFetchPostsFinished(adapter);
+                    }
+                });
+    }
+
+    public void executeGetForumMetaDataFromApi(){
+        iHubchatApiInterface service = retrofit.create(iHubchatApiInterface.class);
+        service.getForumMetaDataFromApi().
+                subscribeOn(Schedulers.newThread()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<ForumMetaDataResponse>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.d("APICALL", "Fetch forum Metadata call completed!");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(ForumMetaDataResponse forumMetaDataResponse) {
+                        //Do the thing with Forum Meta Data
+                        presenter.onFetchForumMetaDataFinished(forumMetaDataResponse);
                     }
                 });
 
-
-
-        return null;
     }
 }

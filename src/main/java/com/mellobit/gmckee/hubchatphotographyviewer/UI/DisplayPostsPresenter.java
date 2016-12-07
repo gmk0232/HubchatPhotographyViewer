@@ -20,12 +20,18 @@ public class DisplayPostsPresenter implements iPhotoPostListPresenter{
     @Override
     public void requestPostList() {
         HubchatApiRest hubchatApiRest= new HubchatApiRest(ctx, this);
-        postsListFragment.onPostDataReady(hubchatApiRest.executeApiCall());
+        hubchatApiRest.executeGetPostsFromApi();
+        hubchatApiRest.executeGetForumMetaDataFromApi();
     }
 
     @Override
-    public void onRequestFinished(PhotoCommunityPostsAdapter adapter) {
+    public void onFetchPostsFinished(PhotoCommunityPostsAdapter adapter) {
         Log.d("DISPLAY POSTS PRESENTER", "Calling onPostDataReady");
         postsListFragment.onPostDataReady(adapter);
+    }
+
+    @Override
+    public void onFetchForumMetaDataFinished(ForumMetaDataResponse forumMetaDataResponse) {
+        postsListFragment.onForumMetaDataReady(forumMetaDataResponse);
     }
 }

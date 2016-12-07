@@ -5,6 +5,7 @@ package com.mellobit.gmckee.hubchatphotographyviewer.UI;
  */
 public interface iPhotoPostListPresenter {
     public void requestPostList();
-    public void onRequestFinished(PhotoCommunityPostsAdapter adapter);
+    public void onFetchPostsFinished(PhotoCommunityPostsAdapter adapter);
+    public void onFetchForumMetaDataFinished(ForumMetaDataResponse forumMetaDataResponse);
 }
 

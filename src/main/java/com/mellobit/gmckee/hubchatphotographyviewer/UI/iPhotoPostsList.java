@@ -8,4 +8,5 @@ import android.support.v7.widget.RecyclerView;
 public interface iPhotoPostsList {
 
     public void onPostDataReady(RecyclerView.Adapter postAdapter);
+    public void onForumMetaDataReady(ForumMetaDataResponse forumMetaDataResponse);
 }

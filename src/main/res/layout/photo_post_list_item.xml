@@ -14,27 +14,64 @@
             android:id="@+id/userAvatarDrawee"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            fresco:placeholderImage="@android:drawable/ic_media_play"
+            fresco:placeholderImage="@drawable/anonuser"
             fresco:roundAsCircle = "true"/>
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/userNameLabel"
-            android:layout_gravity="center_vertical"
-            android:textStyle="italic"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="10dp"
+            android:id="@+id/postBody">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/userNameLabel"
+                android:layout_gravity="center_vertical"
+                android:textStyle="italic"
+                android:paddingLeft="0dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/postText"
+                android:textSize="14dp"
+                android:paddingTop="5dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageHolder"></LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:id="@+id/voteIcon"
+                    android:src="@drawable/upvoteicon"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="0"
+                    android:id="@+id/upVotes"
+                    android:layout_marginLeft="5dp" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/postText"
-        android:textSize="12dp" />
 
 </LinearLayout>
