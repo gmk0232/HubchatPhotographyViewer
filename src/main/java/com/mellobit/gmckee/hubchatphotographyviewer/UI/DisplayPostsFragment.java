@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,19 +57,21 @@ public class DisplayPostsFragment extends Fragment implements iPhotoPostsList{
         linearLayoutManager = new LinearLayoutManager(getActivity());
         photoPostListView.setLayoutManager(linearLayoutManager);
         photoPostListView.setAdapter(new PhotoCommunityPostsAdapter(new PhotoCommunityPost[0], getActivity()));
-        presenter.requestPostList();
+
+        //Pass execution to presenter to get posts
+        presenter.requestData();
         return rootView;
     }
 
     @Override
     public void onPostDataReady(RecyclerView.Adapter postAdapter) {
-        Log.d("DISPLAY LIST FRAGMENT", "Setting adapter");
+        //Set adapter for posts list when ready
         photoPostListView.setAdapter(postAdapter);
     }
 
     @Override
     public void onForumMetaDataReady(ForumMetaDataResponse forumMetaDataResponse) {
-        //Set Header
+        //Set meta data from form when ready
         headerImage.setImageURI(forumMetaDataResponse.forum.headerImage.url);
         logoImage.setImageURI(forumMetaDataResponse.forum.forumIcon.url);
         forumTitleLabel.setText(forumMetaDataResponse.forum.title);

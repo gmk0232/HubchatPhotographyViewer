@@ -17,6 +17,7 @@ import rx.schedulers.Schedulers;
  */
 public class HubchatApiRest {
     private static final String BASE_URL = "https://api.hubchat.com/v1/forum/";
+    private static final String TAG = "RESTCLIENT";
     private Retrofit retrofit;
     private Context ctx;
     private iPhotoPostListPresenter presenter;
@@ -53,12 +54,12 @@ public class HubchatApiRest {
                 subscribe(new Subscriber<PhotographyCommunityResponse>() {
                     @Override
                     public void onCompleted() {
-                        Log.d("APICALL", "Fetch Posts call completed!");
+                        Log.d(TAG, "Fetch Posts call completed!");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("APICALL", e.getMessage());
+                        Log.e(TAG, e.getMessage());
                     }
 
                     @Override
@@ -78,7 +79,7 @@ public class HubchatApiRest {
                 .subscribe(new Subscriber<ForumMetaDataResponse>() {
                     @Override
                     public void onCompleted() {
-                        Log.d("APICALL", "Fetch forum Metadata call completed!");
+                        Log.d(TAG, "Fetch forum Metadata call completed");
                     }
 
                     @Override
@@ -88,7 +89,6 @@ public class HubchatApiRest {
 
                     @Override
                     public void onNext(ForumMetaDataResponse forumMetaDataResponse) {
-                        //Do the thing with Forum Meta Data
                         presenter.onFetchForumMetaDataFinished(forumMetaDataResponse);
                     }
                 });

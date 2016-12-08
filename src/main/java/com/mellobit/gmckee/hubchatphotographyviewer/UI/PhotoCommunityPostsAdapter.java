@@ -27,17 +27,14 @@ public class PhotoCommunityPostsAdapter extends RecyclerView.Adapter<PhotoCommun
         public TextView userName;
         public TextView upVotes;
         public SimpleDraweeView userAvatar;
-        public ViewGroup postBody;
         public ViewGroup imageHolder;
         public ArrayList<SimpleDraweeView> postImages;
-
 
         public PostHolder(View v) {
             super(v);
             postText = (TextView) v.findViewById(R.id.postText);
             userName = (TextView) v.findViewById(R.id.userNameLabel);
             userAvatar = (SimpleDraweeView) v.findViewById(R.id.userAvatarDrawee);
-            postBody = (ViewGroup) v.findViewById(R.id.postBody);
             imageHolder = (ViewGroup) v.findViewById(R.id.imageHolder);
             upVotes = (TextView) v.findViewById(R.id.upVotes);
             postImages = new ArrayList<>();
@@ -52,8 +49,6 @@ public class PhotoCommunityPostsAdapter extends RecyclerView.Adapter<PhotoCommun
 
     @Override
     public PostHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.photo_post_list_item, parent, false);
         return new PostHolder(v);
@@ -70,7 +65,6 @@ public class PhotoCommunityPostsAdapter extends RecyclerView.Adapter<PhotoCommun
         if(!dataSet[position].entities.getImages().isEmpty()){
 
             for (Image image: dataSet[position].entities.getImages()) {
-
                 SimpleDraweeView imageFromPost = new SimpleDraweeView(ctx);
                 imageFromPost.setPadding(5,5,5,5);
                 imageFromPost.setImageURI(image.cdnUrl);
@@ -78,14 +72,8 @@ public class PhotoCommunityPostsAdapter extends RecyclerView.Adapter<PhotoCommun
                 imageFromPost.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                 holder.imageHolder.addView(imageFromPost);
             }
-
         }
-
-
-
-
     }
-
 
     @Override
     public int getItemCount() {

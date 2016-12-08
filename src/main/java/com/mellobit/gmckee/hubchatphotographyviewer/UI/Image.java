@@ -5,8 +5,6 @@ package com.mellobit.gmckee.hubchatphotographyviewer.UI;
  */
 public class Image {
     String cdnUrl;
-    int width;
-    int height;
 
     public String toString(){
         return cdnUrl;

@@ -7,7 +7,6 @@ import java.util.List;
  */
 public class Images {
     List<Image> imageList;
-    private static final String TAG = "IMAGES";
 
     public List<Image> getImageList() {
         return imageList;

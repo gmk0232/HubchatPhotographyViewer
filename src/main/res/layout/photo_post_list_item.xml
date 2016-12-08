@@ -31,8 +31,7 @@
                 android:text="Small Text"
                 android:id="@+id/userNameLabel"
                 android:layout_gravity="center_vertical"
-                android:textStyle="italic"
-                android:paddingLeft="0dp" />
+                android:textStyle="italic" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,7 +39,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Large Text"
                 android:id="@+id/postText"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:paddingTop="5dp" />
 
             <LinearLayout
@@ -65,7 +64,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="0"
                     android:id="@+id/upVotes"
                     android:layout_marginLeft="5dp" />
             </LinearLayout>

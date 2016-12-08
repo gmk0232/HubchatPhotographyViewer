@@ -29,8 +29,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/titleBar"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="5dp"
-        android:elevation="0dp">
+        android:layout_marginLeft="5dp">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:layout_width="75dp"
